@@ -11,15 +11,31 @@ const Table = () => {
   ];
 
   const renderStatus = (status) => {
-    if (status === "Empfangen" || status === "Übertragen") {
-      return (
-        <div className="flex items-center">
-          <span className="mr-2">{status}</span>
-          <span className="bg-red-500 text-white px-2 py-1 rounded-full text-xs">ACTION REQUIRED</span>
-        </div>
-      );
+    let bgColor = "";
+    let textColor = "text-white";
+
+    switch (status) {
+      case "Empfangen":
+        bgColor = "bg-blue-500";
+        break;
+      case "Übertragen":
+        bgColor = "bg-yellow-500";
+        break;
+      case "Kontiert":
+        bgColor = "bg-green-500";
+        break;
+      default:
+        bgColor = "bg-gray-500";
     }
-    return <span>{status}</span>;
+
+    return (
+      <div className={`flex items-center ${bgColor} ${textColor} px-2 py-1 rounded-full text-xs`}>
+        <span className="mr-2">{status}</span>
+        {(status === "Empfangen" || status === "Übertragen") && (
+          <span className="bg-red-500 text-white px-2 py-1 rounded-full text-xs">ACTION REQUIRED</span>
+        )}
+      </div>
+    );
   };
 
   return (
