@@ -29,7 +29,7 @@ const Table = () => {
     }
 
     return (
-      <div className="flex items-center space-x-2">
+      <div className="inline-block space-x-2">
         <span className={`inline-block ${bgColor} ${textColor} px-2 py-1 rounded-full text-xs`}>
           {status}
         </span>
