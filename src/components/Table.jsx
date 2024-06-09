@@ -24,28 +24,28 @@ const Table = () => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full bg-white">
+      <table className="min-w-full bg-white table-auto">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b">ID</th>
-            <th className="py-2 px-4 border-b">Sender</th>
-            <th className="py-2 px-4 border-b">Amount</th>
-            <th className="py-2 px-4 border-b">Status</th>
-            <th className="py-2 px-4 border-b">CEO-Check</th>
-            <th className="py-2 px-4 border-b">Action</th>
+            <th className="py-4 px-6 border-b">ID</th>
+            <th className="py-4 px-6 border-b">Sender</th>
+            <th className="py-4 px-6 border-b">Amount</th>
+            <th className="py-4 px-6 border-b">Status</th>
+            <th className="py-4 px-6 border-b">CEO-Check</th>
+            <th className="py-4 px-6 border-b">Action</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((row) => (
-            <tr key={row.id}>
-              <td className="py-2 px-4 border-b">{row.id}</td>
-              <td className="py-2 px-4 border-b">{row.sender}</td>
-              <td className="py-2 px-4 border-b">{row.amount}</td>
-              <td className="py-2 px-4 border-b">{renderStatus(row.status)}</td>
-              <td className="py-2 px-4 border-b">
+          {data.map((row, index) => (
+            <tr key={row.id} className={`border-b ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'} hover:bg-gray-200`}>
+              <td className="py-4 px-6">{row.id}</td>
+              <td className="py-4 px-6">{row.sender}</td>
+              <td className="py-4 px-6">{row.amount}</td>
+              <td className="py-4 px-6">{renderStatus(row.status)}</td>
+              <td className="py-4 px-6">
                 <input type="checkbox" checked={row.ceoCheck} readOnly />
               </td>
-              <td className="py-2 px-4 border-b">
+              <td className="py-4 px-6">
                 <div className="flex space-x-2">
                   <FaTrash className="cursor-pointer" />
                   <FaEye className="cursor-pointer" />
