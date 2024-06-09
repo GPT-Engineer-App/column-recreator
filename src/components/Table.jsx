@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { MdDeleteOutline, MdOutlineVisibility, MdOutlineErrorOutline } from "react-icons/md";
+import { MdDeleteOutline, MdOutlineVisibility, MdOutlineErrorOutline, MdFilterList, MdSort } from "react-icons/md";
 import { Drawer, DrawerTrigger, DrawerContent, DrawerClose } from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
 
 const Table = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -46,6 +47,16 @@ const Table = () => {
 
   return (
     <div className="overflow-x-auto w-full max-w-none">
+      <div className="flex justify-end space-x-2 mb-4">
+        <Button variant="outline" size="sm" className="flex items-center space-x-1">
+          <MdFilterList className="h-4 w-4" />
+          <span>Filter</span>
+        </Button>
+        <Button variant="outline" size="sm" className="flex items-center space-x-1">
+          <MdSort className="h-4 w-4" />
+          <span>Sort</span>
+        </Button>
+      </div>
       <table className="min-w-full w-full bg-white table-auto w-full">
         <thead>
           <tr>
