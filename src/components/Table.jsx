@@ -11,17 +11,18 @@ const Table = () => {
   ];
 
   const renderStatus = (status) => {
+    status = status.toUpperCase();
     let bgColor = "";
     let textColor = "text-white";
 
     switch (status) {
-      case "Empfangen":
+      case "EMPFANGEN":
         bgColor = "bg-blue-500";
         break;
-      case "Übertragen":
+      case "ÜBERTRAGEN":
         bgColor = "bg-yellow-500";
         break;
-      case "Kontiert":
+      case "KONTIERT":
         bgColor = "bg-green-500";
         break;
       default:
@@ -33,7 +34,7 @@ const Table = () => {
         <span className={`inline-block ${bgColor} ${textColor} px-2 py-1 rounded-full text-xs`}>
           {status}
         </span>
-        {(status === "Empfangen" || status === "Übertragen") && (
+        {(status === "EMPFANGEN" || status === "ÜBERTRAGEN") && (
           <span className="inline-block bg-red-500 text-white px-2 py-1 rounded-full text-xs">ACTION REQUIRED</span>
         )}
       </div>
