@@ -15,7 +15,6 @@ const Table = () => {
       return (
         <div className="flex items-center">
           <span className="mr-2">{status}</span>
-          <FaExclamationCircle className="text-red-500 mr-1" />
           <span className="bg-red-500 text-white px-2 py-1 rounded-full text-xs">ACTION REQUIRED</span>
         </div>
       );
@@ -28,30 +27,30 @@ const Table = () => {
       <table className="min-w-full bg-white">
         <thead>
           <tr>
-            <th className="py-3 px-5 border-b text-left">ID</th>
-            <th className="py-3 px-5 border-b text-left">Sender</th>
-            <th className="py-3 px-5 border-b text-left">Amount</th>
-            <th className="py-3 px-5 border-b text-left">Status</th>
-            <th className="py-3 px-5 border-b text-left">CEO-Check</th>
-            <th className="py-3 px-5 border-b text-left">Action</th>
+            <th className="py-2 px-4 border-b">ID</th>
+            <th className="py-2 px-4 border-b">Sender</th>
+            <th className="py-2 px-4 border-b">Amount</th>
+            <th className="py-2 px-4 border-b">Status</th>
+            <th className="py-2 px-4 border-b">CEO-Check</th>
+            <th className="py-2 px-4 border-b">Action</th>
           </tr>
         </thead>
         <tbody>
           {data.map((row) => (
-            <tr key={row.id} className="hover:bg-gray-100">
-              <td className="py-3 px-5 border-b">{row.id}</td>
-              <td className="py-3 px-5 border-b">{row.sender}</td>
-              <td className="py-3 px-5 border-b">{row.amount}</td>
-              <td className="py-3 px-5 border-b">{renderStatus(row.status)}</td>
-              <td className="py-3 px-5 border-b">
+            <tr key={row.id}>
+              <td className="py-2 px-4 border-b">{row.id}</td>
+              <td className="py-2 px-4 border-b">{row.sender}</td>
+              <td className="py-2 px-4 border-b">{row.amount}</td>
+              <td className="py-2 px-4 border-b">{renderStatus(row.status)}</td>
+              <td className="py-2 px-4 border-b">
                 <input type="checkbox" checked={row.ceoCheck} readOnly />
               </td>
-              <td className="py-3 px-5 border-b">
-                <div className="flex space-x-3">
-                  <FaTrash className="cursor-pointer text-gray-600 hover:text-gray-800" />
-                  <FaEye className="cursor-pointer text-gray-600 hover:text-gray-800" />
+              <td className="py-2 px-4 border-b">
+                <div className="flex space-x-2">
+                  <FaTrash className="cursor-pointer" />
+                  <FaEye className="cursor-pointer" />
                   {(row.status === "Empfangen" || row.status === "Übertragen") && (
-                    <FaExclamationCircle className="cursor-pointer text-red-500 hover:text-red-700" />
+                    <FaExclamationCircle className="cursor-pointer text-red-500" />
                   )}
                 </div>
               </td>
