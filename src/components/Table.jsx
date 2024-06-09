@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTrash, FaEye, FaExclamationCircle } from "react-icons/fa";
+import { MdDeleteOutline, MdOutlineVisibility, MdOutlineErrorOutline } from "react-icons/md";
 
 const Table = () => {
   const data = [
@@ -63,10 +63,10 @@ const Table = () => {
               </td>
               <td className="py-4 px-6">
                 <div className="flex space-x-2">
-                  <FaTrash className="cursor-pointer" />
-                  <FaEye className="cursor-pointer" />
+                  <MdDeleteOutline className="cursor-pointer" />
+                  <MdOutlineVisibility className="cursor-pointer" />
                   {(row.status === "Empfangen" || row.status === "Übertragen") && (
-                    <FaExclamationCircle className="cursor-pointer text-red-500" />
+                    <MdOutlineErrorOutline className="cursor-pointer text-red-500" />
                   )}
                 </div>
               </td>
