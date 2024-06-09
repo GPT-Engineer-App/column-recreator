@@ -30,11 +30,11 @@ const Table = () => {
 
     return (
       <div className="flex items-center space-x-2">
-        <span className={`flex items-center ${bgColor} ${textColor} px-2 py-1 rounded-full text-xs`}>
+        <span className={`inline-block ${bgColor} ${textColor} px-2 py-1 rounded-full text-xs`}>
           {status}
         </span>
         {(status === "Empfangen" || status === "Übertragen") && (
-          <span className="bg-red-500 text-white px-2 py-1 rounded-full text-xs">ACTION REQUIRED</span>
+          <span className="inline-block bg-red-500 text-white px-2 py-1 rounded-full text-xs">ACTION REQUIRED</span>
         )}
       </div>
     );
