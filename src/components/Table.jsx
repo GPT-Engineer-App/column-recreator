@@ -30,7 +30,7 @@ const Table = () => {
 
     return (
       <div className="flex items-center space-x-2">
-        <span className={`flex items-center ${bgColor} ${textColor} px-2 py-1 rounded-full text-xs`}>
+        <span className={`${bgColor} ${textColor} px-2 py-1 rounded-full text-xs`}>
           {status}
         </span>
         {(status === "Empfangen" || status === "Übertragen") && (
