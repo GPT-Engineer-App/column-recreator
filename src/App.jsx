@@ -1,11 +1,11 @@
 import React from "react";
-import Table from "./components/Table";
+import Table from "./components/UpdatedTable";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Table />
+      <Table updated />
     </div>
   );
 }
