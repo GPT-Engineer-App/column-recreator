@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdDeleteOutline, MdOutlineVisibility, MdOutlineErrorOutline, MdFilterList, MdSort } from "react-icons/md";
 import { Button } from "@/components/ui/button";
-import Drawer from "@/components/ui/drawer";
+import Drawer from "@/components/ui/Drawer";
 
 const Table = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -100,7 +100,7 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-      <Drawer isOpen={isDrawerOpen} onClose={toggleDrawer}>
+      <Drawer isOpen={isDrawerOpen} onClose={toggleDrawer} title="Action Required">
         {/* Drawer content goes here */}
       </Drawer>
     </div>
