@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { MdDeleteOutline, MdOutlineVisibility, MdOutlineErrorOutline, MdFilterList, MdSort } from "react-icons/md";
-import { Drawer, DrawerTrigger, DrawerContent, DrawerClose } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 
 const Table = () => {
@@ -83,7 +82,7 @@ const Table = () => {
                   <MdDeleteOutline className="cursor-pointer" />
                   <MdOutlineVisibility className="cursor-pointer" />
                   {(row.status === "Empfangen" || row.status === "Übertragen") && (
-                    <MdOutlineErrorOutline className="cursor-pointer text-red-500" onClick={() => setIsDrawerOpen(true)} />
+                    <MdOutlineErrorOutline className="cursor-pointer text-red-500" />
                   )}
                 </div>
               </td>
