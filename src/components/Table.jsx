@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { MdDeleteOutline, MdOutlineVisibility, MdOutlineErrorOutline, MdFilterList, MdSort } from "react-icons/md";
-import { Drawer, DrawerTrigger, DrawerContent, DrawerClose } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 
 const Table = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
   const data = [
     { id: 1, sender: "John Doe", amount: "€250.00", status: "Empfangen", ceoCheck: true },
     { id: 2, sender: "Jane Smith", amount: "€150.00", status: "Übertragen", ceoCheck: false },
@@ -83,7 +80,7 @@ const Table = () => {
                   <MdDeleteOutline className="cursor-pointer" />
                   <MdOutlineVisibility className="cursor-pointer" />
                   {(row.status === "Empfangen" || row.status === "Übertragen") && (
-                    <MdOutlineErrorOutline className="cursor-pointer text-red-500" onClick={() => setIsDrawerOpen(true)} />
+                    <MdOutlineErrorOutline className="cursor-pointer text-red-500" />
                   )}
                 </div>
               </td>
@@ -91,17 +88,6 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-      <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
-        <DrawerContent className={`fixed inset-0 right-0 z-50 flex w-full max-w-md flex-col bg-white shadow-lg transition-transform transform ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <DrawerClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
-            <span className="sr-only">Close</span>
-          </DrawerClose>
-          <div className="p-4">
-            <h2 className="text-xl font-semibold">Action Required</h2>
-            <p>Details about the action required...</p>
-          </div>
-        </DrawerContent>
-      </Drawer>
     </div>
   );
 };
