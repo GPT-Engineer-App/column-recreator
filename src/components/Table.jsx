@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdDeleteOutline, MdOutlineVisibility, MdOutlineErrorOutline, MdFilterList, MdSort } from "react-icons/md";
 import { Button } from "@/components/ui/button";
-import Drawer from "@/components/ui/drawer";
+import Drawer from "@/components/Drawer";
 
 const Table = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
