@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdDeleteOutline, MdOutlineVisibility, MdOutlineErrorOutline, MdFilterList, MdSort } from "react-icons/md";
 import { Button } from "@/components/ui/button";
+import Drawer from "@/components/ui/drawer";
 
 const Table = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
   const data = [
     { id: 1, sender: "John Doe", amount: "€250.00", status: "Empfangen", ceoCheck: true },
     { id: 2, sender: "Jane Smith", amount: "€150.00", status: "Übertragen", ceoCheck: false },
@@ -36,7 +43,12 @@ const Table = () => {
           {status}
         </span>
         {(status === "EMPFANGEN" || status === "ÜBERTRAGEN") && (
-          <span className="inline-block bg-red-500 text-white px-2 py-1 rounded-full text-xs">ACTION REQUIRED</span>
+          <span
+            className="inline-block bg-red-500 text-white px-2 py-1 rounded-full text-xs cursor-pointer"
+            onClick={toggleDrawer}
+          >
+            ACTION REQUIRED
+          </span>
         )}
       </div>
     );
@@ -88,6 +100,9 @@ const Table = () => {
           ))}
         </tbody>
       </table>
+      <Drawer isOpen={isDrawerOpen} onClose={toggleDrawer}>
+        {/* Drawer content goes here */}
+      </Drawer>
     </div>
   );
 };
