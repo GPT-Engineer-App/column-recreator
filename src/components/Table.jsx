@@ -3,11 +3,12 @@ import { MdDeleteOutline, MdOutlineVisibility, MdOutlineErrorOutline, MdFilterLi
 import { Button } from "@/components/ui/button";
 import Drawer from "@/components/Drawer";
 
-const Table = () => {
+const Table = ({ toggleDrawer }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const toggleDrawer = () => {
+  const handleToggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
+    toggleDrawer();
   };
 
   const data = [
@@ -45,7 +46,7 @@ const Table = () => {
         {(status === "EMPFANGEN" || status === "ÜBERTRAGEN") && (
           <span
             className="inline-block bg-red-500 text-white px-2 py-1 rounded-full text-xs cursor-pointer"
-            onClick={toggleDrawer}
+            onClick={handleToggleDrawer}
           >
             ACTION REQUIRED
           </span>
@@ -100,7 +101,7 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-      <Drawer open={isDrawerOpen} onClose={toggleDrawer}>
+      <Drawer isOpen={isDrawerOpen} onClose={handleToggleDrawer}>
         <div className="p-4">
           <h2 className="text-lg font-bold mb-2">Action Required</h2>
           <p>Please review the details and take necessary actions.</p>
