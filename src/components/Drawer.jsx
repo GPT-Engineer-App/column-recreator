@@ -4,17 +4,22 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const Drawer = ({ isOpen, onClose, children }) => {
-  if (!isOpen) return null;
   return (
     <div
       className={cn(
         'fixed inset-0 z-50 flex',
-        'translate-x-0',
+        isOpen ? 'translate-x-0' : 'translate-x-full',
         'transition-transform duration-300'
       )}
     >
       <div className="fixed inset-0 bg-black opacity-50" onClick={onClose}></div>
-      <div className="relative w-1/3 min-h-screen bg-white shadow-lg translate-x-0">
+      <div
+        className={cn(
+          'relative w-1/3 min-h-screen bg-white shadow-lg',
+          isOpen ? 'translate-x-0' : 'translate-x-full',
+          'transition-transform duration-300'
+        )}
+      >
         <Button
           variant="ghost"
           size="icon"
